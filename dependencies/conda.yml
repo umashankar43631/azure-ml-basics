@@ -1,0 +1,28 @@
+name: model-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9.12
+  - pip=21.2.4
+  - scikit-learn=0.24.2
+  - scipy=1.7.1
+  - pandas
+  - pip:  
+    - mlflow== 1.26.1
+    - azureml-mlflow==1.42.0
+    - mlflow-skinny==2.3.2
+
+# channels:
+#   - conda-forge
+# dependencies:
+#   - python=3.9.12
+#   - numpy  # Latest version from conda-forge
+#   - scikit-learn==1.3.2  # Latest version from conda-forge
+#   - scipy  # Latest version from conda-forge
+#   - pandas   # Maintain the specified version range
+#   - pip  # Install pip for managing Python packages
+#   - pip:
+#     - inference-schema[numpy-support]==1.7  # Pin to specific version
+#     - xlrd  # Pin to specific version
+#     - mlflow # Pin to specific version
+#     - azureml-mlflow  # Pin to specific version

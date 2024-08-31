@@ -1,0 +1,23 @@
+train_model:
+  type: command
+  inputs:
+    input_data:
+      path: ${{parent.jobs.prep_data.outputs.output_data}}
+  outputs:
+    output_data: ${{parent.outputs.pipeline_job_trained_model}}
+  resources:
+    instance_count: 1
+  component:
+    $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+    name: train_model
+    version: '1'
+    display_name: Train model
+    type: command
+    inputs:
+      input_data:
+        type: uri_file
+        optional: false
+    outputs:
+      output_data:
+        type: uri_file
+    command: python train.py --input_data ${{inputs.input_data}}/prep.csv --output_data ${{outputs.output_data}}

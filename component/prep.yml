@@ -1,0 +1,14 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: prep_data
+display_name: Prepare training data
+version: 11
+type: command
+inputs:
+  input_data: 
+    type: uri_file
+outputs:
+  output_data:
+    type: uri_file
+code: ./src
+environment: 'azureml:titanic-data-env:4.0'
+command: python prep.py --input_data ${{inputs.input_data}} --output_data ${{outputs.output_data}}
